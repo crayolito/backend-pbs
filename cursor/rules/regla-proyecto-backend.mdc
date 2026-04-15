@@ -1,0 +1,118 @@
+# BancoSol — Backend .NET Rules
+
+## Arquitectura
+- Usar Clean Architecture estrictamente con 4 proyectos separados:
+  - `BancoSol.Domain` — entidades e interfaces (no depende de nadie)
+  - `BancoSol.Application` — servicios, DTOs, lógica de negocio (depende solo de Domain)
+  - `BancoSol.Infrastructure` — EF Core, repositorios, DbContext (depende de Domain y Application)
+  - `BancoSol.API` — controllers, middleware, Program.cs (depende de todos)
+- Las dependencias SIEMPRE apuntan hacia adentro. Domain nunca importa nada externo.
+- No poner lógica de negocio en los controllers. Los controllers solo reciben, delegan y responden.
+- No poner lógica de negocio en los repositorios. Los repositorios solo acceden a datos.
+
+## Estructura de carpetas
+```
+BancoSol.Domain/
+  Entities/Product.cs
+  Interfaces/IProductRepository.cs
+
+BancoSol.Application/
+  DTOs/ProductDto.cs
+  DTOs/UpdatePriceDto.cs
+  DTOs/ProductQueryDto.cs
+  Interfaces/IProductService.cs
+  Services/ProductService.cs
+
+BancoSol.Infrastructure/
+  Data/AppDbContext.cs
+  Data/SeedData.cs
+  Repositories/ProductRepository.cs
+
+BancoSol.API/
+  Controllers/ProductsController.cs
+  Middleware/ExceptionHandlingMiddleware.cs
+  Program.cs
+```
+
+## ORM
+- Usar Entity Framework Core con SQLite
+- El archivo de base de datos se llama `products.db`
+- Usar migraciones versionadas con `dotnet ef migrations add`
+- Configurar precisión decimal en OnModelCreating: `HasPrecision(18, 2)` para Price
+- El seed data va en `OnModelCreating` usando `HasData` con mínimo 20 productos variados
+- Los productos del seed deben tener distintas monedas (BOB, USD, EUR), distintos stocks (incluyendo 0), y precios variados
+
+## Endpoints
+- `GET /api/products` — retorna todos los productos con soporte de parámetros:
+  - `?search={texto}` — filtra por name o sku (contains, case-insensitive)
+  - `?currency={BOB|USD|EUR}` — filtra por moneda
+  - `?inStock=true` — filtra solo productos con stock > 0
+  - `?minPrice={valor}&maxPrice={valor}` — filtra por rango de precio
+  - `?sortBy={price|name|stock}&order={asc|desc}` — ordena resultados
+  - `?page={numero}&size={numero}` — paginación (default page=1, size=10)
+- `PATCH /api/products/{id}/price` — actualiza solo el precio
+
+## HTTP y respuestas
+- Usar siempre los status codes correctos:
+  - 200 OK para GET y PATCH exitoso
+  - 400 Bad Request cuando price <= 0 o currency vacía
+  - 404 Not Found cuando el producto no existe
+  - 500 Internal Server Error via middleware global
+- Las respuestas de error siempre tienen estructura JSON consistente: `{ "error": "mensaje claro" }`
+- Usar DTOs siempre, nunca exponer la entidad directamente
+- La respuesta paginada incluye: `{ "data": [], "page": 1, "size": 10, "total": 100 }`
+
+## Validaciones
+- price debe ser > 0 (validar en Application layer)
+- currency no puede ser vacía ni null (validar en Application layer)
+- Si el producto no existe retornar 404 con mensaje claro
+- Usar Data Annotations en los DTOs
+
+## Cache
+- Usar IMemoryCache (no Redis)
+- Registrar en Program.cs con `builder.Services.AddMemoryCache()`
+- Cache key para lista completa sin filtros: `"products_list"`
+- TTL: 5 minutos
+- Invalidar el cache en cada PATCH exitoso con `_cache.Remove("products_list")`
+- NO cachear cuando hay parámetros de búsqueda, filtros u ordenamiento activos
+
+## Logging
+- Usar Serilog únicamente
+- Configurar en Program.cs con `builder.Host.UseSerilog`
+- Dos sinks únicamente — nada más:
+  - Console — para desarrollo
+  - File con rolling diario: `logs/app-.log` con `RollingInterval.Day`
+- Loggear en ProductService:
+  - Info al inicio de cada operación
+  - Warning cuando un producto no se encuentra
+  - Error cuando ocurre una excepción
+- No loggear datos sensibles ni el API Key
+
+## Manejo de errores global
+- Crear `ExceptionHandlingMiddleware` en la capa API
+- Capturar todas las excepciones no manejadas
+- Loggear con Serilog el error completo internamente
+- Retornar siempre JSON limpio al cliente, nunca el stack trace
+- Registrar el middleware en Program.cs antes de los controllers
+
+## Plus implementados
+- API Key: validar header `X-Api-Key` con valor fijo en appsettings.json
+- Paginación: `?page=1&size=10`
+- Ordenamiento: `?sortBy=price&order=asc`
+- Filtros: `?currency=`, `?inStock=true`, `?minPrice=`, `?maxPrice=`
+- Logging consola + archivo rolling diario con Serilog
+- Manejo de errores robusto con middleware global
+
+## Paquetes NuGet
+- `Microsoft.EntityFrameworkCore.Sqlite` → Infrastructure
+- `Microsoft.EntityFrameworkCore.Design` → Infrastructure
+- `Serilog.AspNetCore` → API
+- `Serilog.Sinks.File` → API
+
+## Convenciones de código
+- Nombres en inglés para todo el código
+- Interfaces con prefijo I: `IProductRepository`, `IProductService`
+- DTOs con sufijo Dto: `ProductDto`, `UpdatePriceDto`
+- Métodos async con sufijo Async: `GetAllAsync`, `UpdatePriceAsync`
+- Usar `async/await` en todos los métodos que acceden a base de datos
+- Usar `var` solo cuando el tipo es obvio
