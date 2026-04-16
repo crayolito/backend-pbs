@@ -19,3 +19,9 @@ logs/
 # User-specific files
 *.user
 *.suo
+
+# Build output de SDK-style projects
+**/artifacts/
+
+# Paquetes locales de NuGet
+packages/
