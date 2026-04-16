@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BancoSol.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+605e266f64916a256ed9cc968358b2f54ffa6f32")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea7673c6eff5ff931211509391be6d9b808bd386")]
 [assembly: System.Reflection.AssemblyProductAttribute("BancoSol.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BancoSol.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

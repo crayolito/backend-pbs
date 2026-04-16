@@ -1,2 +1,3 @@
 <Solution>
+  <Project Path="Application.Tests/Application.Tests.csproj" />
 </Solution>

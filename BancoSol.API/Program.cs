@@ -4,7 +4,7 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Logging
+// Configuracion SeriLog para Loggin en consola y archivo diario
 builder.Host.UseSerilog((_, _, loggerConfiguration) =>
 {
     loggerConfiguration
@@ -13,7 +13,7 @@ builder.Host.UseSerilog((_, _, loggerConfiguration) =>
         .WriteTo.File("logs/app-.log", rollingInterval: RollingInterval.Day);
 });
 
-// Servicios
+// Registra servicios base swagger y dependencias de aplicacion y infraestructura
 builder.Services
     .AddApiCore(builder.Configuration)
     .AddSwaggerDocumentation()
@@ -21,10 +21,10 @@ builder.Services
 
 var app = builder.Build();
 
-// Infraestructura inicial
+// Inicializa la base de datos al arracar la API
 await app.InitializeDatabaseAsync();
 
-// Pipeline HTTP
+// Configurar el pipeline HTTP
 app.UseApiDocumentation();
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionHandlingMiddleware>();

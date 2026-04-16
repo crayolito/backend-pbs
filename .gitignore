@@ -25,3 +25,11 @@ logs/
 
 # Paquetes locales de NuGet
 packages/
+
+# Test outputs
+TestResults/
+**/TestResults/
+
+# VS cache extra
+*.userosscache
+*.sln.docstates
