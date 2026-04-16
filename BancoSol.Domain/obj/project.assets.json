@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj",
       "projectName": "BancoSol.Domain",
-      "projectPath": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj",
+      "projectPath": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj",
       "packagesPath": "C:\\Users\\jsahonero\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Domain\\obj\\",
+      "outputPath": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

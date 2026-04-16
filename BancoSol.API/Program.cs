@@ -1,23 +1,35 @@
+using BancoSol.API.Extensions;
+using BancoSol.API.Middleware;
+using Serilog;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Logging
+builder.Host.UseSerilog((_, _, loggerConfiguration) =>
+{
+    loggerConfiguration
+        .MinimumLevel.Information()
+        .WriteTo.Console()
+        .WriteTo.File("logs/app-.log", rollingInterval: RollingInterval.Day);
+});
 
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// Servicios
+builder.Services
+    .AddApiCore(builder.Configuration)
+    .AddSwaggerDocumentation()
+    .AddApplicationDependencies(builder.Configuration);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+// Infraestructura inicial
+await app.InitializeDatabaseAsync();
 
+// Pipeline HTTP
+app.UseApiDocumentation();
 app.UseHttpsRedirection();
-
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+app.UseMiddleware<ApiKeyMiddleware>();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

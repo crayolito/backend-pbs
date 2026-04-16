@@ -1,0 +1,21 @@
+# Cursor
+.cursor
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+
+# .NET build outputs
+**/bin/
+**/obj/
+
+# Logs / local databases (generated at runtime)
+logs/
+**/logs/
+*.db
+*.db-shm
+*.db-wal
+
+# User-specific files
+*.user
+*.suo

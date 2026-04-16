@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Infrastructure\\BancoSol.Infrastructure.csproj": {}
+    "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Infrastructure\\BancoSol.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Application\\BancoSol.Application.csproj": {
+    "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Application\\BancoSol.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Application\\BancoSol.Application.csproj",
+        "projectUniqueName": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Application\\BancoSol.Application.csproj",
         "projectName": "BancoSol.Application",
-        "projectPath": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Application\\BancoSol.Application.csproj",
+        "projectPath": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Application\\BancoSol.Application.csproj",
         "packagesPath": "C:\\Users\\jsahonero\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Application\\obj\\",
+        "outputPath": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj": {
-                "projectPath": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj"
+              "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj": {
+                "projectPath": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj"
               }
             }
           }
@@ -53,6 +53,16 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+          "dependencies": {
+            "Microsoft.Extensions.Caching.Memory": {
+              "target": "Package",
+              "version": "[10.0.5, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -347,14 +357,14 @@
         }
       }
     },
-    "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj": {
+    "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj",
         "projectName": "BancoSol.Domain",
-        "projectPath": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj",
+        "projectPath": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj",
         "packagesPath": "C:\\Users\\jsahonero\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Domain\\obj\\",
+        "outputPath": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -686,14 +696,14 @@
         }
       }
     },
-    "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Infrastructure\\BancoSol.Infrastructure.csproj": {
+    "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Infrastructure\\BancoSol.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Infrastructure\\BancoSol.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Infrastructure\\BancoSol.Infrastructure.csproj",
         "projectName": "BancoSol.Infrastructure",
-        "projectPath": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Infrastructure\\BancoSol.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Infrastructure\\BancoSol.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\jsahonero\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -714,11 +724,11 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Application\\BancoSol.Application.csproj": {
-                "projectPath": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Application\\BancoSol.Application.csproj"
+              "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Application\\BancoSol.Application.csproj": {
+                "projectPath": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Application\\BancoSol.Application.csproj"
               },
-              "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj": {
-                "projectPath": "C:\\Users\\jsahonero\\source\\repos\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj"
+              "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj": {
+                "projectPath": "C:\\Users\\jsahonero\\OneDrive - Farmacorp S.A\\Escritorio\\PRUEBA TECNICA\\BancoSol\\BancoSol.Domain\\BancoSol.Domain.csproj"
               }
             }
           }
@@ -738,6 +748,18 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[10.0.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
