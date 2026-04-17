@@ -24,10 +24,6 @@ public sealed class ProductsController : ControllerBase
         [FromQuery] ProductQueryDto query,
         CancellationToken cancellationToken = default
     ){
-
-        // Simulación de latencia para pruebas
-        await Task.Delay(TimeSpan.FromSeconds(4), cancellationToken);
-
         // Delega reglas de negocio al servicio de aplicacion
         var result = await _productService.GetAllAsync(query, cancellationToken);
 
@@ -42,10 +38,6 @@ public sealed class ProductsController : ControllerBase
         [FromBody] UpdatePriceDto request,
         CancellationToken cancellationToken)
     {
-
-        // Simulación de latencia para pruebas
-        await Task.Delay(TimeSpan.FromSeconds(2), cancellationToken);
-
         // Delega validacion y persistencia al servicio
         var result = await _productService.UpdatePriceAsync(id, request, cancellationToken);
 

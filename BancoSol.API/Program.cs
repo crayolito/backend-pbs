@@ -26,7 +26,10 @@ await app.InitializeDatabaseAsync();
 
 // Configurar el pipeline HTTP
 app.UseApiDocumentation();
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseMiddleware<ApiKeyMiddleware>();
 app.UseAuthorization();

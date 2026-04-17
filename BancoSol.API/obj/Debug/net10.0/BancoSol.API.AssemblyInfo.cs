@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BancoSol.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea7673c6eff5ff931211509391be6d9b808bd386")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a44f97c34cf5b47b85a9b8858e5f8ffba4b21ff")]
 [assembly: System.Reflection.AssemblyProductAttribute("BancoSol.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BancoSol.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
